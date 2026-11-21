@@ -27,6 +27,28 @@ def test_traslaciones():
     assert np.allclose(Trans(1, 2, 3), esperado)
 
 
+def test_rotacion_x_90_grados():
+    esperado = np.array([
+        [1, 0,  0, 0],
+        [0, 0, -1, 0],
+        [0, 1,  0, 0],
+        [0, 0,  0, 1]
+    ])
+
+    assert np.allclose(Rx(np.pi / 2), esperado)
+
+
+def test_rotacion_y_90_grados():
+    esperado = np.array([
+        [ 0, 0, 1, 0],
+        [ 0, 1, 0, 0],
+        [-1, 0, 0, 0],
+        [ 0, 0, 0, 1]
+    ])
+
+    assert np.allclose(Ry(np.pi / 2), esperado)
+
+
 def test_rotacion_z_90_grados():
     esperado = np.array([
         [0, -1, 0, 0],
@@ -41,6 +63,8 @@ def test_rotacion_z_90_grados():
 if __name__ == "__main__":
     test_rotaciones_identidad()
     test_traslaciones()
+    test_rotacion_x_90_grados()
+    test_rotacion_y_90_grados()
     test_rotacion_z_90_grados()
 
     print("Todas las pruebas MELFA pasaron correctamente.")
